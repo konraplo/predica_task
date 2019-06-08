@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Document Set (0x0120D520) -->
+  <ContentType ID="0x0120D52000B7FF4D802E3E4631A4AEDDA271D87E78"
+               Name="PredicaOrder"
+               Group="Predica Content Types"
+               Description="My Content Type"
+               Inherits="TRUE"
+               Version="0">
+    <FieldRefs>
+    </FieldRefs>
+  </ContentType>
+</Elements>

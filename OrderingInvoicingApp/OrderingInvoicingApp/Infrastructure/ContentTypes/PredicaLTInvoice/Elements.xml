@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: PredicaInvoice (OrderingInvoicingApp\PredicaInvoice) (0x0101006667822C2C904046B11878F79EFAF7A6) -->
+  <ContentType ID="0x0101006667822C2C904046B11878F79EFAF7A60035D6DBDCBCBB47D8B3D9F882A2652E25"
+               Name="$Resources:PredicaOrders,ChangeCTLongTermInvoice"
+               Group="Predica Content Types"
+               Description="$Resources:PredicaOrders,ChangeCTLongTermInvoiceDescr"
+               Inherits="TRUE"
+               Version="0">
+    <FieldRefs>
+    </FieldRefs>
+  </ContentType>
+</Elements>

@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package dslVersion="1.0.0.0" 
-        Id="7f020497-f240-466d-a36f-104bd95b7b33" 
-        solutionId="7f020497-f240-466d-a36f-104bd95b7b33" 
-        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
-        name="OrderingInvoicingApp"
-        sharePointProductVersion="16.0">
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="7f020497-f240-466d-a36f-104bd95b7b33" solutionId="7f020497-f240-466d-a36f-104bd95b7b33" resetWebServer="false" sharePointProductVersion="16.0" name="OrderingInvoicingApp" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="497e3677-2ff6-4e1f-8e92-e3ab1b4507c4" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="679103d5-d8ee-4ef8-ac3c-55a17cb9a466" />
+  </projectItems>
 </package>

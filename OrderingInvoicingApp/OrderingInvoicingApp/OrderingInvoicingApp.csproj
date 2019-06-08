@@ -53,8 +53,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\PredicaOrders.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PredicaOrders.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Features\OrderingInfrastructure\OrderingInfrastructure.feature">
+      <FeatureId>{497e3677-2ff6-4e1f-8e92-e3ab1b4507c4}</FeatureId>
+    </None>
+    <None Include="Infrastructure\ContentTypes\PredicaInvoice\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7227d000-739b-423b-ae9b-8b2503ec2e68}</SharePointProjectItemId>
+    </None>
+    <None Include="Infrastructure\ContentTypes\PredicaLTInvoice\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e9f0edc7-816c-46be-84b5-cbbfe5401405}</SharePointProjectItemId>
+    </None>
+    <None Include="Infrastructure\ContentTypes\PredicaOrder\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1bf30ce0-21ed-4676-8cc1-10b90f43dc43}</SharePointProjectItemId>
+    </None>
+    <None Include="Infrastructure\ContentTypes\PredicaSTInvoice\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{397315e4-18c5-494d-8bb7-8e73bb35b82e}</SharePointProjectItemId>
+    </None>
     <None Include="key.snk" />
     <None Include="Package\Package.package">
       <PackageId>{7f020497-f240-466d-a36f-104bd95b7b33}</PackageId>
@@ -62,9 +82,30 @@
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
     </None>
+    <None Include="Resources\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{679103d5-d8ee-4ef8-ac3c-55a17cb9a466}</SharePointProjectItemId>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\" />
+    <Content Include="Resources\PredicaOrders.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PredicaOrders.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Features\OrderingInfrastructure\OrderingInfrastructure.Template.xml">
+      <DependentUpon>OrderingInfrastructure.feature</DependentUpon>
+    </Content>
+    <Content Include="Infrastructure\ContentTypes\PredicaInvoice\Elements.xml" />
+    <Content Include="Infrastructure\ContentTypes\PredicaLTInvoice\Elements.xml" />
+    <Content Include="Infrastructure\ContentTypes\PredicaOrder\Elements.xml" />
+    <Content Include="Infrastructure\ContentTypes\PredicaSTInvoice\Elements.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\PredicaOrders.en-us.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PredicaOrders.en-us.Designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
