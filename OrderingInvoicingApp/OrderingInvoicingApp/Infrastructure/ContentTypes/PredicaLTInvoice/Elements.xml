@@ -2,12 +2,16 @@
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
   <!-- Parent ContentType: PredicaInvoice (OrderingInvoicingApp\PredicaInvoice) (0x0101006667822C2C904046B11878F79EFAF7A6) -->
   <ContentType ID="0x0101006667822C2C904046B11878F79EFAF7A60035D6DBDCBCBB47D8B3D9F882A2652E25"
-               Name="$Resources:PredicaOrders,ChangeCTLongTermInvoice"
+               Name="$Resources:PredicaOrders,PredicaCTLongTermInvoice"
                Group="Predica Content Types"
-               Description="$Resources:PredicaOrders,ChangeCTLongTermInvoiceDescr"
+               Description="$Resources:PredicaOrders,PredicaCTLongTermInvoiceDescr"
+               JSLink="~sitecollection/SiteAssets/Scripts/jquery-3.1.0.min.js | ~sitecollection/SiteAssets/Scripts/AddMonth.js"
                Inherits="TRUE"
                Version="0">
     <FieldRefs>
+      <FieldRef ID="{f4dcc271-a3be-4968-b4db-c1c0377490af}" Name="PredicaInvoiceDescr" />
+
+
     </FieldRefs>
   </ContentType>
 </Elements>

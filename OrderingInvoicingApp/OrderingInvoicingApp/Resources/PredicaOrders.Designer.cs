@@ -61,20 +61,146 @@ namespace OrderingInvoicingApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        internal static string PredicaColContracInvoiceDescr {
+            get {
+                return ResourceManager.GetString("PredicaColContracInvoiceDescr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Amount.
+        /// </summary>
+        internal static string PredicaColInvoiceAmount {
+            get {
+                return ResourceManager.GetString("PredicaColInvoiceAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Paid.
+        /// </summary>
+        internal static string PredicaColInvoicePaid {
+            get {
+                return ResourceManager.GetString("PredicaColInvoicePaid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Standard Fee .
+        /// </summary>
+        internal static string PredicaColNotStandardFee {
+            get {
+                return ResourceManager.GetString("PredicaColNotStandardFee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Internal Order Name.
+        /// </summary>
+        internal static string PredicaColOrderName {
+            get {
+                return ResourceManager.GetString("PredicaColOrderName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Long Term Payment Date.
+        /// </summary>
+        internal static string PredicaColPredicaInvoiceLTPaymentDate {
+            get {
+                return ResourceManager.GetString("PredicaColPredicaInvoiceLTPaymentDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payment Date.
+        /// </summary>
+        internal static string PredicaColPredicaInvoicePaymentDate {
+            get {
+                return ResourceManager.GetString("PredicaColPredicaInvoicePaymentDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Short Term Payment Date.
+        /// </summary>
+        internal static string PredicaColPredicaInvoiceSTPaymentDate {
+            get {
+                return ResourceManager.GetString("PredicaColPredicaInvoiceSTPaymentDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Predica invoice.
+        /// </summary>
+        internal static string PredicaCTInvoice {
+            get {
+                return ResourceManager.GetString("PredicaCTInvoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Base ct for invoice.
+        /// </summary>
+        internal static string PredicaCTInvoiceDescr {
+            get {
+                return ResourceManager.GetString("PredicaCTInvoiceDescr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Long term invoice.
         /// </summary>
-        internal static string ChangeCTLongTermInvoice {
+        internal static string PredicaCTLongTermInvoice {
             get {
-                return ResourceManager.GetString("ChangeCTLongTermInvoice", resourceCulture);
+                return ResourceManager.GetString("PredicaCTLongTermInvoice", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Create long term invoice.
         /// </summary>
-        internal static string ChangeCTLongTermInvoiceDescr {
+        internal static string PredicaCTLongTermInvoiceDescr {
             get {
-                return ResourceManager.GetString("ChangeCTLongTermInvoiceDescr", resourceCulture);
+                return ResourceManager.GetString("PredicaCTLongTermInvoiceDescr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order.
+        /// </summary>
+        internal static string PredicaCTPredicaOrder {
+            get {
+                return ResourceManager.GetString("PredicaCTPredicaOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create order.
+        /// </summary>
+        internal static string PredicaCTPredicaOrderDescr {
+            get {
+                return ResourceManager.GetString("PredicaCTPredicaOrderDescr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Short term invoice.
+        /// </summary>
+        internal static string PredicaCTShortTermInvoice {
+            get {
+                return ResourceManager.GetString("PredicaCTShortTermInvoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create short term invoice.
+        /// </summary>
+        internal static string PredicaCTShortTermInvoiceDescr {
+            get {
+                return ResourceManager.GetString("PredicaCTShortTermInvoiceDescr", resourceCulture);
             }
         }
     }

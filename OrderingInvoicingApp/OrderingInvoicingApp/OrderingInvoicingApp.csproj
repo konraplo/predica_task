@@ -52,6 +52,9 @@
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\OrderingInfrastructure\OrderingInfrastructure.EventReceiver.cs">
+      <DependentUpon>OrderingInfrastructure.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\PredicaOrders.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -63,6 +66,9 @@
     <None Include="Features\OrderingInfrastructure\OrderingInfrastructure.feature">
       <FeatureId>{497e3677-2ff6-4e1f-8e92-e3ab1b4507c4}</FeatureId>
     </None>
+    <None Include="InfrastructureFiles\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{94c731b0-472f-40ed-b89c-226a2461876b}</SharePointProjectItemId>
+    </None>
     <None Include="Infrastructure\ContentTypes\PredicaInvoice\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{7227d000-739b-423b-ae9b-8b2503ec2e68}</SharePointProjectItemId>
     </None>
@@ -72,8 +78,8 @@
     <None Include="Infrastructure\ContentTypes\PredicaOrder\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{1bf30ce0-21ed-4676-8cc1-10b90f43dc43}</SharePointProjectItemId>
     </None>
-    <None Include="Infrastructure\ContentTypes\PredicaSTInvoice\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{397315e4-18c5-494d-8bb7-8e73bb35b82e}</SharePointProjectItemId>
+    <None Include="Infrastructure\Fields\PredicaFields\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{91030c38-fae9-490d-84c9-596dc1470fb7}</SharePointProjectItemId>
     </None>
     <None Include="key.snk" />
     <None Include="Package\Package.package">
@@ -87,6 +93,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="InfrastructureFiles\Elements.xml" />
+    <Content Include="InfrastructureFiles\Sample.txt" />
+    <Content Include="InfrastructureFiles\Scripts\AddMonth.js" />
+    <Content Include="InfrastructureFiles\Scripts\jquery-3.1.0.min.js" />
+    <Content Include="Infrastructure\Fields\PredicaFields\Elements.xml" />
     <Content Include="Resources\PredicaOrders.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>PredicaOrders.Designer.cs</LastGenOutput>
@@ -99,7 +110,6 @@
     <Content Include="Infrastructure\ContentTypes\PredicaInvoice\Elements.xml" />
     <Content Include="Infrastructure\ContentTypes\PredicaLTInvoice\Elements.xml" />
     <Content Include="Infrastructure\ContentTypes\PredicaOrder\Elements.xml" />
-    <Content Include="Infrastructure\ContentTypes\PredicaSTInvoice\Elements.xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\PredicaOrders.en-us.resx">
@@ -107,6 +117,7 @@
       <LastGenOutput>PredicaOrders.en-us.Designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

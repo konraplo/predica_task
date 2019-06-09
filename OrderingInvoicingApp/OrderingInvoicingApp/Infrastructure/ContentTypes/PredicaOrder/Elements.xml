@@ -2,12 +2,15 @@
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
   <!-- Parent ContentType: Document Set (0x0120D520) -->
   <ContentType ID="0x0120D52000B7FF4D802E3E4631A4AEDDA271D87E78"
-               Name="PredicaOrder"
+               Name="$Resources:PredicaOrders,PredicaCTPredicaOrder"
                Group="Predica Content Types"
-               Description="My Content Type"
+               Description="$Resources:PredicaOrders,PredicaCTPredicaOrderDescr"
                Inherits="TRUE"
                Version="0">
     <FieldRefs>
+      <FieldRef ID="{1fc87c65-f371-46d3-bb42-6174eeaeea6e}" Name="PredicaNotStandardFee" />
+      <FieldRef ID="{8553196d-ec8d-4564-9861-3dbe931050c8}" Name="FileLeafRef" DisplayName="$Resources:PredicaOrders,PredicaColOrderName" />
+      <FieldRef ID="{cbb92da4-fd46-4c7d-af6c-3128c2a5576e}" Name="DocumentSetDescription" Description=""/>
     </FieldRefs>
   </ContentType>
 </Elements>

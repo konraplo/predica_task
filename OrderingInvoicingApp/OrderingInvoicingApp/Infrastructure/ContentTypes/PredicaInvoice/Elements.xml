@@ -2,12 +2,16 @@
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
   <!-- Parent ContentType: Document (0x0101) -->
   <ContentType ID="0x0101006667822C2C904046B11878F79EFAF7A6"
-               Name="PredicaInvoice"
+               Name="$Resources:PredicaOrders,PredicaCTInvoice"
                Group="Predica Content Types"
-               Description="My Content Type"
+               Description="$Resources:PredicaOrders,PredicaCTInvoiceDescr"
                Inherits="TRUE"
                Version="0">
     <FieldRefs>
+      <FieldRef ID="{2d51c3db-ef8f-4c74-ae95-600d7edd00e7}" Name="PredicaInvoiceLTPaymentDate" DisplayName="$Resources:PredicaOrders,PredicaColPredicaInvoicePaymentDate"/>
+      <FieldRef ID="{08907428-1a25-4b0a-8d73-d8cb9dfbf0cf}" Name="PredicaInvoiceAmount" />
+      <FieldRef ID="{0d5ca535-19ec-4964-b8b1-51d45204f517}" Name="PredicaInvoicePaid" />
+
     </FieldRefs>
   </ContentType>
 </Elements>

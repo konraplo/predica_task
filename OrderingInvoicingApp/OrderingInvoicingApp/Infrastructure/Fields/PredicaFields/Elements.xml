@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <!-- order-->
+  <Field ID="{1fc87c65-f371-46d3-bb42-6174eeaeea6e}"
+         Name="PredicaNotStandardFee"
+         Type="Boolean"
+         DisplayName="$Resources:PredicaOrders,PredicaColNotStandardFee"
+         Group="Predica Ordering Fields">
+    <Default>0</Default>
+  </Field>
+
+  <!-- invoice -->
+  <Field ID="{0d5ca535-19ec-4964-b8b1-51d45204f517}"
+         Name="PredicaInvoicePaid"
+         Type="Boolean"
+         DisplayName="$Resources:PredicaOrders,PredicaColInvoicePaid"
+         Group="Predica Ordering Fields">
+    <Default>0</Default>
+  </Field>
+
+  <Field ID="{08907428-1a25-4b0a-8d73-d8cb9dfbf0cf}"
+         Name="PredicaInvoiceAmount"
+         Type="Number"
+         Decimals="2"
+         Percentage="FALSE"
+         DisplayName="$Resources:PredicaOrders,PredicaColInvoiceAmount"
+         Group="Predica Ordering Fields">
+  </Field>
+
+  <Field ID="{b7ceb387-51bb-4483-83fd-ff4eee7a7358}"
+        StaticName="PredicaInvoiceSTPaymentDate"
+        Name="PredicaInvoiceSTPaymentDate"
+        Type="DateTime"
+        DisplayName="$Resources:PredicaOrders,PredicaColPredicaInvoiceSTPaymentDate"
+        Format="DateOnly"
+        Group="Predica Ordering Fields">
+  </Field>
+
+  <Field ID="{f4dcc271-a3be-4968-b4db-c1c0377490af}"
+           StaticName="PredicaInvoiceDescr"
+           Name="PredicaInvoiceDescr"
+           Type="Note"
+           DisplayName="$Resources:COSContracts,PredicaColContracInvoiceDescr"
+           Group="Predica Ordering Fields"/>
+  
+
+  <Field ID="{2d51c3db-ef8f-4c74-ae95-600d7edd00e7}"
+        StaticName="PredicaInvoiceLTPaymentDate"
+        Name="PredicaInvoiceLTPaymentDate"
+        Type="DateTime"
+        DisplayName="$Resources:PredicaOrders,PredicaColPredicaInvoiceLTPaymentDate"
+        Format="DateOnly"
+        Group="Predica Ordering Fields">
+  </Field>
+
+</Elements>
