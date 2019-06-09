@@ -145,4 +145,7 @@
   <data name="PredicaColContracInvoiceDescr" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="PredicaListTitleOrders" xml:space="preserve">
+    <value>Orders</value>
+  </data>
 </root>

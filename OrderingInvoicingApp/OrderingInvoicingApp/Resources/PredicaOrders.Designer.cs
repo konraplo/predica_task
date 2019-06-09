@@ -203,5 +203,14 @@ namespace OrderingInvoicingApp.Resources {
                 return ResourceManager.GetString("PredicaCTShortTermInvoiceDescr", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Orders.
+        /// </summary>
+        internal static string PredicaListTitleOrders {
+            get {
+                return ResourceManager.GetString("PredicaListTitleOrders", resourceCulture);
+            }
+        }
     }
 }

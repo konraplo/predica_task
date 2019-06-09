@@ -40,7 +40,7 @@
            StaticName="PredicaInvoiceDescr"
            Name="PredicaInvoiceDescr"
            Type="Note"
-           DisplayName="$Resources:COSContracts,PredicaColContracInvoiceDescr"
+           DisplayName="$Resources:PredicaOrders,PredicaColContracInvoiceDescr"
            Group="Predica Ordering Fields"/>
   
 

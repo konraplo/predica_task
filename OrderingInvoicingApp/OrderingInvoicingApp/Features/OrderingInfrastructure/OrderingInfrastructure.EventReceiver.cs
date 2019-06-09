@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Microsoft.SharePoint;
+using Microsoft.SharePoint.Utilities;
+using OrderingInvoicingApp.Common;
 
 namespace OrderingInvoicingApp.Features.OrderingInfrastructure
 {
@@ -16,6 +17,8 @@ namespace OrderingInvoicingApp.Features.OrderingInfrastructure
     [Guid("ce73b2dd-0d37-47fa-b72e-d533f4161868")]
     public class OrderingInfrastructureEventReceiver : SPFeatureReceiver
     {
+        private const string Orders = "Lists/Orders";
+
         // Uncomment the method below to handle the event raised after a feature has been activated.
 
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
@@ -24,7 +27,7 @@ namespace OrderingInvoicingApp.Features.OrderingInfrastructure
 
             if (web != null)
             {
-                AddFieldsCtErToLists(web);
+                AddFieldsCtToLists(web);
             }
         }
 
@@ -32,7 +35,7 @@ namespace OrderingInvoicingApp.Features.OrderingInfrastructure
         /// Add fields, content types end event receivers to list
         /// </summary>
         /// <param name="web"></param>
-        private void AddFieldsCtErToLists(SPWeb web)
+        private void AddFieldsCtToLists(SPWeb web)
         {
             SPContentType invoice = web.Site.RootWeb.ContentTypes[new SPContentTypeId("0x0101006667822C2C904046B11878F79EFAF7A6")];
             invoice.JSLink = "~sitecollection/SiteAssets/Scripts/jquery-3.1.0.min.js | ~sitecollection/SiteAssets/Scripts/AddMonth.js";
@@ -64,6 +67,14 @@ namespace OrderingInvoicingApp.Features.OrderingInfrastructure
             orderContentType.FieldLinks[Guid.Parse("{1fc87c65-f371-46d3-bb42-6174eeaeea6e}")].ReadOnly = true;
             orderContentType.Update(true);
 
+            string ordersUrl = SPUrlUtility.CombineUrl(web.ServerRelativeUrl.TrimEnd('/'), Orders);
+            SPList ordersList = web.GetList(ordersUrl);
+            ordersList.ContentTypesEnabled = true;
+            ordersList.ContentTypes.Add(orderContentType);
+            ordersList.ContentTypes.Add(invoice);
+            ordersList.ContentTypes.Add(ltInvoice);
+            ordersList.Update();
+          
         }
 
         // Uncomment the method below to handle the event raised before a feature is deactivated.
