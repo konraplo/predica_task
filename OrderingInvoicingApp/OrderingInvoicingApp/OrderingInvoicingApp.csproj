@@ -56,14 +56,22 @@
     <Compile Include="Features\OrderingInfrastructure\OrderingInfrastructure.EventReceiver.cs">
       <DependentUpon>OrderingInfrastructure.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\OrderingTimerjobs\OrderingTimerjobs.EventReceiver.cs">
+      <DependentUpon>OrderingTimerjobs.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\PredicaOrders.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PredicaOrders.resx</DependentUpon>
     </Compile>
+    <Compile Include="TimerJobs\OrdersMonitoringTimerJob.cs" />
+    <Compile Include="TimerJobs\OrdersMonitoringTimerJobExecuter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Features\OrderingTimerjobs\OrderingTimerjobs.feature">
+      <FeatureId>{da6d93cb-7055-4b64-8ea5-73d4e84f0e52}</FeatureId>
+    </None>
     <None Include="Features\OrderingInfrastructure\OrderingInfrastructure.feature">
       <FeatureId>{497e3677-2ff6-4e1f-8e92-e3ab1b4507c4}</FeatureId>
     </None>
@@ -97,6 +105,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Features\OrderingTimerjobs\OrderingTimerjobs.Template.xml">
+      <DependentUpon>OrderingTimerjobs.feature</DependentUpon>
+    </Content>
     <Content Include="InfrastructureFiles\Elements.xml" />
     <Content Include="InfrastructureFiles\Sample.txt" />
     <Content Include="InfrastructureFiles\Scripts\AddMonth.js" />
