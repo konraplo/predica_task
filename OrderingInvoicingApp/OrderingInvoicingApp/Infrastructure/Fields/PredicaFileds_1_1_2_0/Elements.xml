@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  
+  <Field ID="{46dabdf8-4979-413b-bf1b-1be6445f2637}"
+          StaticName="PredicaInvoiceOwner"
+          Name="PredicaInvoiceOwner"
+          Type="User"
+          DisplayName="$Resources:PredicaOrders,PredicaColInvoiceOwner"
+          List="UserInfo"
+          Required="TRUE"
+          ShowField="ImnName"
+          UserSelectionMode="PeopleAndGroups"
+          UserSelectionScope="0"
+          Group="Predica Ordering Fields"/>
+</Elements>

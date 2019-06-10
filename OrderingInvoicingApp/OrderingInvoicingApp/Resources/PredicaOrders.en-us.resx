@@ -148,4 +148,7 @@
   <data name="PredicaListTitleOrders" xml:space="preserve">
     <value>Orders</value>
   </data>
+  <data name="PredicaColInvoiceOwner" xml:space="preserve">
+    <value>Owner</value>
+  </data>
 </root>

@@ -79,5 +79,54 @@ namespace OrderingInvoicingApp.Common
             return string.Format(BATCH_UPDATE_ITEM_CMD, itemId, listId, itemId, value);
         }
 
+        /// <summary>
+        /// Add specified field to content type (or update existing with specified props)
+        /// </summary>
+        /// <param name="pWeb"></param>
+        /// <param name="pContentType"> </param>
+        /// <param name="pField"></param>
+        /// <param name="pRequired">should this field be required or not</param>
+        /// <param name="pReadOnly"> </param>
+        public static void AddFieldToContentType(SPWeb pWeb, SPContentType pContentType, SPField pField, bool pRequired, bool pReadOnly, string pDisplayName)
+        {
+            using (SPSite site = new SPSite(pWeb.Site.ID))
+            {
+                using (SPWeb rootWeb = site.OpenWeb(site.RootWeb.ID))
+                {
+                    rootWeb.AllowUnsafeUpdates = true;
+                    SPFieldLink fieldLink;
+                    if (!pContentType.Fields.Contains(pField.Id))
+                    {
+
+                        fieldLink = new SPFieldLink(pField);
+
+                        pContentType.FieldLinks.Add(fieldLink);
+
+                    }
+                    else
+                    {
+                        fieldLink = pContentType.FieldLinks[pField.Id];
+                    }
+
+                    fieldLink.Required = pRequired;
+                    fieldLink.DisplayName = string.IsNullOrEmpty(pDisplayName) ? pField.Title : pDisplayName;
+
+                    if (pRequired)
+                    {
+                        fieldLink.ReadOnly = false;
+                    }
+                    else
+                    {
+                        fieldLink.ReadOnly = pReadOnly;
+
+                    }
+
+                    SPContentType checkContentType = rootWeb.AvailableContentTypes[pContentType.Id];
+                    pContentType.Update(null != checkContentType);
+                    rootWeb.AllowUnsafeUpdates = false;
+                }
+            }
+        }
+
     }
 }

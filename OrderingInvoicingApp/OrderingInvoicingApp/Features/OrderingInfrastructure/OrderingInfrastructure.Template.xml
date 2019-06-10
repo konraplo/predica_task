@@ -1,3 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Feature xmlns="http://schemas.microsoft.com/sharepoint/">
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Version="1.1.2.0">
+<UpgradeActions ReceiverAssembly="OrderingInvoicingApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f4b850fb05770632" ReceiverClass="OrderingInvoicingApp.Features.OrderingInfrastructure.OrderingInfrastructureEventReceiver" >
+<VersionRange EndVersion="1.1.2.0">      
+  <ApplyElementManifests>        
+   <ElementManifest Location="PredicaFileds_1_1_2_0\Elements.xml" />
+  </ApplyElementManifests>
+   
+   <CustomUpgradeAction Name="UpgradeToV1.2">     
+   </CustomUpgradeAction>
+   
+ </VersionRange> 
+ 
+ </UpgradeActions> 
+  
+
 </Feature>

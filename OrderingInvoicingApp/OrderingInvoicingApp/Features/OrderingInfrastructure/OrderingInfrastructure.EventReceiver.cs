@@ -28,7 +28,17 @@ namespace OrderingInvoicingApp.Features.OrderingInfrastructure
 
             if (web != null)
             {
-                AddFieldsCtToLists(web);
+                try
+                {
+                    AddFieldsCtToLists(web);
+                    Upgradeto112(web);
+                }
+                catch (Exception ex)
+                {
+                    Logger.WriteLog(Logger.Category.Information, this.GetType().Name, "Error while activating feature OrderingInfrastructure");
+                    throw;
+
+                }
             }
         }
 
@@ -107,8 +117,40 @@ namespace OrderingInvoicingApp.Features.OrderingInfrastructure
 
         // Uncomment the method below to handle the event raised when a feature is upgrading.
 
-        //public override void FeatureUpgrading(SPFeatureReceiverProperties properties, string upgradeActionName, System.Collections.Generic.IDictionary<string, string> parameters)
-        //{
-        //}
+        public override void FeatureUpgrading(SPFeatureReceiverProperties properties, string upgradeActionName, System.Collections.Generic.IDictionary<string, string> parameters)
+        {
+            try
+            {
+
+                SPWeb web = properties.Feature.Parent as SPWeb;
+
+                switch (upgradeActionName)
+                {
+
+                    case "UpgradeToV1.2":
+                        Upgradeto112(web);
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog(Logger.Category.Unexpected, this.GetType().Name, string.Format("Error wgile activating Feature:{0}", ex.Message));
+                throw;
+            }
+        }
+
+        private void Upgradeto112(SPWeb web)
+        {
+            Logger.WriteLog(Logger.Category.Information, this.GetType().Name, "Upgradeto112");
+            SPField owner = web.Fields.GetFieldByInternalName("PredicaInvoiceOwner");
+
+            SPContentType invoice = web.Site.RootWeb.ContentTypes[new SPContentTypeId("0x0101006667822C2C904046B11878F79EFAF7A6")];
+            Logger.WriteLog(Logger.Category.Information, this.GetType().Name, string.Format("add filed:{0} to ct:{1}", owner.InternalName, invoice.Name));
+            Helper.AddFieldToContentType(web, invoice, owner, true, false, "$Resources:PredicaOrders,PredicaColInvoiceOwner");
+
+            SPContentType ltInvoice = web.Site.RootWeb.ContentTypes[new SPContentTypeId("0x0101006667822C2C904046B11878F79EFAF7A60035D6DBDCBCBB47D8B3D9F882A2652E25")];
+            Logger.WriteLog(Logger.Category.Information, this.GetType().Name, string.Format("add filed:{0} to ct:{1}", owner.InternalName, ltInvoice.Name));
+            Helper.AddFieldToContentType(web, ltInvoice, owner, true, false, "$Resources:PredicaOrders,PredicaColInvoiceOwner");
+        }
     }
 }

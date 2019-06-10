@@ -79,6 +79,15 @@ namespace OrderingInvoicingApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Owner.
+        /// </summary>
+        internal static string PredicaColInvoiceOwner {
+            get {
+                return ResourceManager.GetString("PredicaColInvoiceOwner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Paid.
         /// </summary>
         internal static string PredicaColInvoicePaid {
