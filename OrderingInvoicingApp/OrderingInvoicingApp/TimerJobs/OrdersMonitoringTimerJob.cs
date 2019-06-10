@@ -35,7 +35,7 @@
         /// </summary>
         /// <param name="jobName">Name of the job</param>
         /// <param name="webApplication">WebApplication object</param>
-        public OrdersMonitoringTimerJob(string jobName, SPWebApplication webApplication) : base(jobName, webApplication, null, SPJobLockType.ContentDatabase)
+        public OrdersMonitoringTimerJob(string jobName, SPWebApplication webApplication) : base(jobName, webApplication, null, SPJobLockType.Job)
         {
             this.Title = TimerJobName;
         }
