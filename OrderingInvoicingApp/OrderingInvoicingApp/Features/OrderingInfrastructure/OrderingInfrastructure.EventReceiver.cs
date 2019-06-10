@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using Microsoft.Office.DocumentManagement.DocumentSets;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using OrderingInvoicingApp.Common;
@@ -46,7 +47,6 @@ namespace OrderingInvoicingApp.Features.OrderingInfrastructure
             ltInvoice.Update(true);
 
             SPContentType orderContentType = web.Site.RootWeb.ContentTypes[new SPContentTypeId("0x0120D52000B7FF4D802E3E4631A4AEDDA271D87E78")];
-
             List<string> colnames = new List<string>();
             colnames.Add("PredicaNotStandardFee");
             colnames.Add("FileLeafRef");
@@ -65,6 +65,14 @@ namespace OrderingInvoicingApp.Features.OrderingInfrastructure
             orderContentType.FieldLinks.Reorder(colnames.ToArray());
             orderContentType.FieldLinks[SPBuiltInFieldId.FileLeafRef].DisplayName = "$Resources:PredicaOrders,PredicaColOrderName";
             orderContentType.FieldLinks[Guid.Parse("{1fc87c65-f371-46d3-bb42-6174eeaeea6e}")].ReadOnly = true;
+
+            DocumentSetTemplate docsetTemplate = DocumentSetTemplate.GetDocumentSetTemplate(orderContentType);
+            // Setting the content types
+            docsetTemplate.AllowedContentTypes.Remove(web.ContentTypes["Document"].Id);
+            docsetTemplate.AllowedContentTypes.Add(invoice.Id);
+            docsetTemplate.AllowedContentTypes.Add(ltInvoice.Id);
+            docsetTemplate.Update(true);
+
             orderContentType.Update(true);
 
             string ordersUrl = SPUrlUtility.CombineUrl(web.ServerRelativeUrl.TrimEnd('/'), Orders);

@@ -5,6 +5,7 @@ using Microsoft.SharePoint.Utilities;
 using OrderingInvoicingApp.Common;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace OrderingInvoicingApp.TimerJobs
 {
@@ -51,22 +52,33 @@ namespace OrderingInvoicingApp.TimerJobs
 
                             // not paid orders
                             query.Query = QueryNotPaidOrders;
+                            query.ViewAttributes = "Scope=\"Recursive\"";
+                            
                             SPListItemCollection orders = list.GetItems(query);
-                            List<string> formatedUpdateBatchCommands = new List<string>();
+                            List<SPListItem> dsToUpdate = new List<SPListItem>();
 
                             foreach (SPListItem listItem in orders)
                             {
-                                SPFolder parentFolder = web.GetFolder(listItem.Folder.Url);
-                                DocumentSet ds = DocumentSet.GetDocumentSet(parentFolder);
-                                //set not standard fee to true;
-                                //formatedUpdateBatchCommands.Add(Helper.BuildBatchUpdateCommand(list.ID.ToString(),
-                                //                    listItem.ID,
-                                //                    list.Fields[Guid.Parse("1fc87c65-f371-46d3-bb42-6174eeaeea6e")].InternalName, "1"));
+                                SPListItem parentFolderItem = listItem.File.ParentFolder.Item;
+                                if (parentFolderItem == null)
+                                {
+                                    continue;
+                                }
+
+                                if (parentFolderItem.ContentTypeId.IsChildOf(new SPContentTypeId("0x0120D52000B7FF4D802E3E4631A4AEDDA271D87E78")))
+                                {
+                                    if (dsToUpdate.FirstOrDefault(x => x.ID.Equals(parentFolderItem.ID))== null)
+                                    {
+                                        //add dataset to update
+                                        dsToUpdate.Add(parentFolderItem);
+                                    }
+                                }
                             }
 
-                            if (formatedUpdateBatchCommands.Count > 0)
+                            foreach (SPListItem listItem in dsToUpdate)
                             {
-                                Helper.BatchUpdateListItems(web, formatedUpdateBatchCommands);
+                                listItem[Guid.Parse("1fc87c65-f371-46d3-bb42-6174eeaeea6e")] = 1;
+                                listItem.Update();
                             }
                         }
                     }

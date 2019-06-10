@@ -142,7 +142,7 @@ namespace OrderingInvoicingApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Base ct for invoice.
+        ///   Looks up a localized string similar to Create invoice.
         /// </summary>
         internal static string PredicaCTInvoiceDescr {
             get {
