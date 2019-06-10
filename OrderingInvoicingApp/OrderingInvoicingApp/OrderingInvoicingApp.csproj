@@ -42,6 +42,7 @@
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.DocumentManagement, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -52,6 +53,7 @@
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Helper.cs" />
     <Compile Include="Common\Logger.cs" />
     <Compile Include="Features\OrderingInfrastructure\OrderingInfrastructure.EventReceiver.cs">
       <DependentUpon>OrderingInfrastructure.feature</DependentUpon>

@@ -1,12 +1,10 @@
-﻿using Microsoft.SharePoint;
+﻿using Microsoft.Office.DocumentManagement.DocumentSets;
+using Microsoft.SharePoint;
 using Microsoft.SharePoint.Administration;
 using Microsoft.SharePoint.Utilities;
 using OrderingInvoicingApp.Common;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrderingInvoicingApp.TimerJobs
 {
@@ -54,8 +52,21 @@ namespace OrderingInvoicingApp.TimerJobs
                             // not paid orders
                             query.Query = QueryNotPaidOrders;
                             SPListItemCollection orders = list.GetItems(query);
-                            foreach (SPListItem taskItem in orders)
+                            List<string> formatedUpdateBatchCommands = new List<string>();
+
+                            foreach (SPListItem listItem in orders)
                             {
+                                SPFolder parentFolder = web.GetFolder(listItem.Folder.Url);
+                                DocumentSet ds = DocumentSet.GetDocumentSet(parentFolder);
+                                //set not standard fee to true;
+                                //formatedUpdateBatchCommands.Add(Helper.BuildBatchUpdateCommand(list.ID.ToString(),
+                                //                    listItem.ID,
+                                //                    list.Fields[Guid.Parse("1fc87c65-f371-46d3-bb42-6174eeaeea6e")].InternalName, "1"));
+                            }
+
+                            if (formatedUpdateBatchCommands.Count > 0)
+                            {
+                                Helper.BatchUpdateListItems(web, formatedUpdateBatchCommands);
                             }
                         }
                     }
