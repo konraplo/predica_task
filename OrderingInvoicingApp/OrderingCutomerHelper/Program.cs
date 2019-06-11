@@ -43,7 +43,6 @@ namespace OrderingCutomerHelper
             string scUrl = Console.ReadLine();
             try
             {
-                //CheckMyOrders(@"http://sharcha-p15/sites/predica");
                 CheckMyOrders(scUrl);
             }
             catch (Exception ex)
@@ -61,7 +60,6 @@ namespace OrderingCutomerHelper
             {
                 ctx.Load(ctx.Web);
                 List orders = ctx.Web.Lists.GetByTitle("Orders");
-                //ctx.Load(orders);
 
                 CamlQuery query = new CamlQuery();
                 query.ViewXml = myInvoices;
